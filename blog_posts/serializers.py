@@ -6,7 +6,7 @@ class BlogPostSerializer(serializers.ModelSerializer):
     username = serializers.SerializerMethodField('get_author_username_from_blogpost')
     class Meta:
         model = BlogPost
-        fields = ['title','body','date_updated','username'] #These are field to be returned
+        fields = ['title','body','date_updated','username','slug'] #These are field to be returned
     
     def get_author_username_from_blogpost(self,blog_post):
         return blog_post.author.username
